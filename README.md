@@ -66,6 +66,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 8. Open your web browser and go to http://localhost:8000 to access the application.
+   
 ## Usage
 
 1. Register a new account with a unique username and password.
@@ -74,6 +75,12 @@ python manage.py runserver
 4. Explore other user profiles and like or unlike their talks.
 5. View recently added talks on the homepage.
 6. Edit or delete your own user account or talks as needed.
+
+## Preview
+
+- **Project Video**
+
+https://github.com/devanshptl/X-Twitter--clone/assets/161101983/2bd0ed3f-76ea-4635-898d-5f331043275d
 
 ## Contributing
 We welcome any and all contributions! Here are some ways you can get started:
