@@ -1,0 +1,50 @@
+{% include "nav.html" %}
+{% load static %}
+<title> Searched People</title>
+<h1 style="margin-left: 10px;">Search Users</h1>
+<form action="#" method="POST" class="mb-3">
+    {% csrf_token %}
+    <input style="width: 500px; margin-left: 10px;" type="text" name="search" placeholder="Search User ">
+
+
+</form>
+<br />
+<br />
+<h1 style="display: flex; justify-content: center;">Searched Peoples</h1>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<br /><br />
+{% if searched  %}
+{% for searched in searched %}
+<div style="display: flex; justify-content: center;">
+    <div class="card bg-light  mb-3" style="max-width: 540px;">
+        <div class="row g-1 ">
+            <center>
+                {% if searched.profile.profile_image %}
+                <div class="col-md-4">
+                    <img class="img-fluid rounded-circle" width: 50%; height: 50%; border-radius: 50%;
+                        src="{{ searched.profile.profile_image.url }}" style="object-fit: cover;" alt="image">
+                </div>
+                {% else %}
+                <div class="col-md-4">
+                    <img src="{% static "images/p1.png" %}" class="img-fluid rounded-start" alt="image">
+                </div>
+                {% endif %}
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="message-header"> <a class="username text-decoration-none"
+                                href="{% url 'profile' searched.profile.user.id %}">@{{ searched.profile.user.username | lower}}</a>
+                        </h5>
+                    </div>
+
+                </div>
+            </center>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+{% endif %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
